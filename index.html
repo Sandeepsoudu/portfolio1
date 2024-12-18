@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css">
+    <style>
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 1rem;
+        }
+        .nav__logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav__menu ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+        .nav__menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        #home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            text-align: center;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 4rem 0;
+        }
+        #home img {
+            width: 50%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin-right: 2rem;
+        }
+        .home__title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .home__title-color {
+            color: #ffcc00;
+        }
+        .button {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            color: #2575fc;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .button:hover {
+            background: #2575fc;
+            color: white;
+        }
+
+        /* About Section */
+        #about {
+            background: #f4f4f4;
+            padding: 4rem 1rem;
+        }
+        .about__container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .about__img img {
+            width: 200px; /* Adjust size */
+            height: 200px; /* Adjust size */
+            object-fit: cover; /* Crop image to fit */
+            object-position: top; /* Focus on top portion (face to waist) */
+            border-radius: 50%; /* Circular image */
+            border: 3px solid #fff; /* Optional border around the image */
+        }
+        .about__subtitle {
+            font-size: 1.8rem;
+            color: #2575fc;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Section */
+        #skills {
+            padding: 4rem 1rem;
+        }
+        #skills h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #4CAF50;
+        }
+        .skills__container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .skills__box {
+            padding: 1rem;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+        .skills__box:hover {
+            background-color: #45a049;
+        }
+
+        /* Projects Section */
+        #projects {
+            background: #f4f4f4;
+            padding: 4rem 1rem;
+        }
+        #projects h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #4CAF50;
+        }
+        .projects__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            justify-content: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .projects__item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .projects__item:hover {
+            transform: translateY(-10px);
+        }
+        .projects__img {
+            width: 100%;
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .projects__desc {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 4rem 1rem;
+        }
+        #contact h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #4CAF50;
+        }
+        .contact__form {
+            max-width: 600px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .contact__input {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .contact__button {
+            background: #2575fc;
+            color: white;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .contact__button:hover {
+            background: #4CAF50;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: #333;
+            color: white;
+        }
+        .footer__social a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+        }
+        .footer__social a:hover {
+            color: #ffcc00;
+        }
+    </style>
+    <title>Manish Portfolio</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav">
+            <div class="nav__logo">Manish</div>
+            <div class="nav__menu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home -->
+    <section id="home">
+        <img src="./assets/img/pic1.jpg" alt="Home Image">
+        <div>
+            <h1 class="home__title">Hi, I'm <span class="home__title-color">Manish</span></h1>
+            <p>Aspiring Software Engineer and Developer</p>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="about__container">
+            <div class="about__img">
+                <img src="./assets/img/pic2.jpg" alt="About Me">
+            </div>
+            <div>
+                <h2 class="about__subtitle">About Me</h2>
+                <p>I am an aspiring Software Developer passionate about programming and technology. With a robust foundation in Computer Science and Engineering, I have honed my skills in languages such as Java, Python, and C while gaining hands-on experience through innovative projects. My ambition is to create impactful solutions through clean, efficient, and maintainable code.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills__container">
+            <div class="skills__box">JAVA</div>
+            <div class="skills__box">Python</div>
+            <div class="skills__box">HTML</div>
+            <div class="skills__box">CSS</div>
+            <div class="skills__box">JavaScript</div>
+            <div class="skills__box">UX/UI Design</div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects__container">
+            <div class="projects__item">
+                <img src="https://up.yimg.com/ib/th?id=OIP.7bhjczRhY5Rq5CRHW9579AHaFx&pid=Api&rs=1&c=1&qlt=95&w=130&h=101" alt="Online Cab Booking System" class="projects__img">
+                <div class="projects__desc">
+                    <p><strong>Online Cab Booking System</strong> - A Java Swing-based app designed with event listeners for booking and managing cab rides, including features like user login and ride management.</p>
+                </div>
+            </div>
+            <div class="projects__item">
+                <img src="https://up.yimg.com/ib/th?id=OIP.O2j8k6g1NTAM0t_mIqOBtQHaE7&pid=Api&rs=1&c=1&qlt=95&w=186&h=124" alt="AI-Powered Chatbot" class="projects__img">
+                <div class="projects__desc">
+                    <p><strong>AI-Powered Chatbot</strong> - Developed using Python with TensorFlow and NLTK, this chatbot learns from interactions and can improve its answers over time.</p>
+                </div>
+            </div>
+            <div class="projects__item">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.hmxsCL-ta6vaDmo25xVEqgHaEK&pid=Api&P=0&h=220" alt="Portfolio Website" class="projects__img">
+                <div class="projects__desc">
+                    <p><strong>Portfolio Website</strong> - A responsive website created with HTML, CSS, and JavaScript, showcasing personal skills, projects, and contact information.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form class="contact__form">
+            <input type="text" placeholder="Your Name" class="contact__input">
+            <input type="email" placeholder="Your Email" class="contact__input">
+            <textarea placeholder="Your Message" class="contact__input"></textarea>
+            <button type="submit" class="contact__button">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Empati Manish Portfolio &copy; 2024</p>
+        <div class="footer__social">
+            <a href="https://linkedin.com/in/empati-manish"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://github.com/manish4543"><i class='bx bxl-github'></i></a>
+            <a href="https://leetcode.com/u/Manish_2783/"><i class='bx bx-code-alt'></i></a>
+        </div>
+    </footer>
+</body>
+</html>
